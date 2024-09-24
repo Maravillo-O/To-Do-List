@@ -6,54 +6,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prueba</title>
 </head>
-<h1>Prueba 11</h1>
-<input type="text" placeholder="Task name" class="inputTask">
-<input type="date" class="inputDate">
-<button class="btn" onclick="addTask();">Add Task</button>
-<div class="div2Render">False Result</div>
 
 <body>
+  <h1>Prueba II</h1>
+  <input type="text" placeholder="Task Name" class="inputTask">
+  <input type="date" class="inputDate">
+  <button class="addBtn" onclick="addTask();">Add</button>
+  <div class="divDisplay">Fake Result</div>
   <script>
+    const inputTask = document.querySelector('.inputTask');
+    const inputDate = document.querySelector('.inputDate');
+    const divDisplay = document.querySelector('.divDisplay');
 
-    //primero necesitamos el procedimiento para pushear el valor del input en el array
+    const arr = [{
+      task: 'Lock In',
+      dueDate: '24-09-2024'
+    },
+    {
+      task: 'keep going',
+      dueDate: '24-09-2024'
+    }]
 
-    const taskInput = document.querySelector('.inputTask');
-    const dateInput = document.querySelector('.inputDate');
+    const display = () => {
+      let string2Display = '';
 
-    const displayArr = () => {
-      let renderArr = '';
       for (let i = 0; i < arr.length; i++) {
-        //le asignamos una variable al valor de la iteración actual
-        const actualObject = arr[i];
-        //asignamos una variable al valor(es) de la propiedad(es) del array
-        const task = actualObject.task;
-        const date = actualObject.date;
-        //por cada iteración agregaremos un p a el html
-        const html = `<p>${task}, ${date}<button onclick="arr.splice(${i},1);displayArr();">Delete</button></p>`
-        //guardamos el valor de cada iteración en nuestra variable vacia
-        renderArr += html;
+        const actualObj = arr[i];
+        //Valores dentro del objeto
+        const task = actualObj.task;
+        const dueDate = actualObj.dueDate;
+        //creamos html en base a los input
+        const html = `
+        <div>${task}</div>
+        <div>${dueDate}</div>
+        <button class="deleteBtn" onclick="arr.splice(${i},1); display();">Delete</button>
+        `
+        //aglomeramos cada resultado de html 
+        string2Display += html;
       }
-      const div = document.querySelector('.div2Render');
-      //modificamos el html de nuestro div para renderizar renderArr
-      div.innerHTML = renderArr;
+      //modificamos el html del div donde se muestran los resultados
+      divDisplay.innerHTML = string2Display;
     }
-    let arr = [{
-      task: 'Estudiar minimo 1 hora',
-      date: '22-12-2022'
-    }];
-
 
     const addTask = () => {
-      const task = taskInput.value;
-      const date = dateInput.value;
+      const task = inputTask.value;
+      const dueDate = inputDate.value;
 
       arr.push({
-        //si la propiedad y el valor tienen el mismo nombre se puede poner solo task, date respectivamente
         task: task,
-        date: date
+        dueDate: dueDate
       })
-      console.log(arr);
-      displayArr();
+      inputTask.value = '',
+        inputDate.Value = ''
+      display();
     }
   </script>
 </body>
