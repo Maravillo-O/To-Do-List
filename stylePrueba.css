@@ -1,0 +1,42 @@
+.body {
+  font-family: arial;
+}
+
+.css-divDisplay,
+.divInputs {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  /*Para alinear verticalmente se usa align-items*/
+  align-items: center;
+}
+
+.divInputs {
+  margin-bottom: 10px;
+}
+
+.deleteBtn {
+  color: white;
+  background-color: darkred;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(105, 106, 107, 0.548);
+    transition: .5s;
+  }
+}
+
+.css-inputTask,
+.ccs-inputDate {
+  padding: 6px;
+}
+
+.css-addBtn {
+  color: rgb(253, 253, 253);
+  background-color: darkgreen;
+  border: none;
+  padding: 8px
+}

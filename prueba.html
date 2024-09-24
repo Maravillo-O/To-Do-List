@@ -5,14 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prueba</title>
+  <link rel="stylesheet" href="stylePrueba.css">
 </head>
 
 <body>
   <h1>Prueba II</h1>
-  <input type="text" placeholder="Task Name" class="inputTask">
-  <input type="date" class="inputDate">
-  <button class="addBtn" onclick="addTask();">Add</button>
-  <div class="divDisplay">Fake Result</div>
+  <div class="divInputs">
+    <input type="text" placeholder="Task Name" class="inputTask css-inputTask">
+    <input type="date" class="inputDate ccs-inputDate">
+    <button class="addBtn css-addBtn" onclick="addTask();">Add</button>
+  </div>
+  <div class="divDisplay css-divDisplay">Fake Result</div>
+
   <script>
     const inputTask = document.querySelector('.inputTask');
     const inputDate = document.querySelector('.inputDate');
