@@ -22,6 +22,8 @@ const renderTodoList = () => {
     //const {dueDate} = actualObject;
     const dueDate = actualObject.dueDate;
     //declaramos una varaible para el parrafo con el valor todo
+    //arr.splice(start,how-many);
+
     const html = `<p>${name} ${dueDate}<button onclick="todoList.splice(${i}, 1);renderTodoList();"> Delete </button></p>`;
     //'sumamos' el valor del parrafo a la variable y ahora esa variable es el nuevo array en string
     acumulador += html

@@ -29,7 +29,7 @@
         const task = actualObject.task;
         const date = actualObject.date;
         //por cada iteración agregaremos un p a el html
-        const html = `<p>${task}, ${date}<button>Delete</button></p>`
+        const html = `<p>${task}, ${date}<button onclick="arr.splice(${i},1);displayArr();">Delete</button></p>`
         //guardamos el valor de cada iteración en nuestra variable vacia
         renderArr += html;
       }
