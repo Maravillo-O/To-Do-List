@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba</title>
+</head>
+<h1>Prueba 11</h1>
+<input type="text" placeholder="Task name" class="inputTask">
+<input type="date" class="inputDate">
+<button class="btn" onclick="addTask();">Add Task</button>
+<div class="div2Render">False Result</div>
+
+<body>
+  <script>
+
+    //primero necesitamos el procedimiento para pushear el valor del input en el array
+
+    const taskInput = document.querySelector('.inputTask');
+    const dateInput = document.querySelector('.inputDate');
+
+    const displayArr = () => {
+      let renderArr = '';
+      for (let i = 0; i < arr.length; i++) {
+        //le asignamos una variable al valor de la iteración actual
+        const actualObject = arr[i];
+        //asignamos una variable al valor(es) de la propiedad(es) del array
+        const task = actualObject.task;
+        const date = actualObject.date;
+        //por cada iteración agregaremos un p a el html
+        const html = `<p>${task}, ${date}<button>Delete</button></p>`
+        //guardamos el valor de cada iteración en nuestra variable vacia
+        renderArr += html;
+      }
+      const div = document.querySelector('.div2Render');
+      //modificamos el html de nuestro div para renderizar renderArr
+      div.innerHTML = renderArr;
+    }
+    let arr = [{
+      task: 'Estudiar minimo 1 hora',
+      date: '22-12-2022'
+    }];
+    const addTask = () => {
+      const taskName = taskInput.value;
+      const date = dateInput.value;
+
+      arr.push({
+        task: taskName,
+        date: date
+      })
+      console.log(arr);
+      displayArr();
+    }
+  </script>
+</body>
+
+</html>
