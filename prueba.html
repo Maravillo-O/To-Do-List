@@ -41,12 +41,15 @@
       task: 'Estudiar minimo 1 hora',
       date: '22-12-2022'
     }];
+
+
     const addTask = () => {
-      const taskName = taskInput.value;
+      const task = taskInput.value;
       const date = dateInput.value;
 
       arr.push({
-        task: taskName,
+        //si la propiedad y el valor tienen el mismo nombre se puede poner solo task, date respectivamente
+        task: task,
         date: date
       })
       console.log(arr);

@@ -1,60 +1,51 @@
-
 const todoList = [{
   name: 'make dinner',
-  dueDate: '2022 - 12 - 12'
-},
-{
+  dueDate: '2022-12-22'
+}, {
   name: 'wash dishes',
-  dueDate: '2022 - 12 - 12'
-}
-];
-const input = document.querySelector('.resultDiv');
+  dueDate: '2022-12-22'
+}];
 
-const renderTodoList = () => {
-  //reiniciamos un array vacio
-  let acumulador = [];
-  //loop para recorrer todos los valores del array que tiene todoList
+renderTodoList();
+
+function renderTodoList() {
+  let todoListHTML = '';
+
   for (let i = 0; i < todoList.length; i++) {
-    //valor de la iteración actual
-    const actualObject = todoList[i];
-    //const {name} = actualObject;
-    const name = actualObject.name;
-    //const {dueDate} = actualObject;
-    const dueDate = actualObject.dueDate;
-    //declaramos una varaible para el parrafo con el valor todo
-    //arr.splice(start,how-many);
-
-    const html = `<p>${name} ${dueDate}<button onclick="todoList.splice(${i}, 1);renderTodoList();"> Delete </button></p>`;
-    //'sumamos' el valor del parrafo a la variable y ahora esa variable es el nuevo array en string
-    acumulador += html
+    const todoObject = todoList[i];
+    //const name = todoObject.name;
+    //const dueDate = todoObject.dueDate;
+    const { name, dueDate } = todoObject;
+    const html = `
+      <div>${name}</div>
+      <div>${dueDate}</div>
+      <button onclick="
+        todoList.splice(${i}, 1);
+        renderTodoList();
+      " class="deleteBtn">Delete</button> 
+    `;
+    todoListHTML += html;
   }
-  //mostramos en terminal el array en string
-  console.log(acumulador);
 
-  input.innerHTML = acumulador;
+  document.querySelector('.js-todo-list')
+    .innerHTML = todoListHTML;
 }
 
+function addTodo() {
+  const inputElement = document.querySelector('.js-name-input');
+  const name = inputElement.value;
 
+  const dateInputElement = document.querySelector('.js-due-date-input');
+  const dueDate = dateInputElement.value;
 
-
-const inputValue = document.querySelector('.inputField');
-const dateInput = document.querySelector('.dateInput');
-
-const addToDo = () => {
-  const name = inputValue.value;
-  const dueDate = dateInput.value;
-  //pusheamos un objeto a al array 'todoList'
   todoList.push({
-    name: name,
-    dueDate: dueDate
+    //name: name,
+    //dueDate: dueDate,
+    name,
+    dueDate
   });
 
-  //tanto 'name' como 'dueDate' que son propiedades de 'todoList', 
+  inputElement.value = '';
 
-  //mostramos en consola el array
-  console.log(todoList);
-  //dejamos el valor de el input en blanco
-  inputValue.value = '';
-  //usamos la funcion renderToDoList
   renderTodoList();
 }

@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Do List (beta)</title>
+  <title>Todo List</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <p>To Do List Practice 2</p>
-  <input type="text" placeholder="Task To Do" class="inputField">
-  <input type="date" class="dateInput">
-  <button class="addBtn" onclick="addToDo();">Add</button>
-  <div class="resultDiv">Fake Result</div>
+  <p>Todo List</p>
+
+  <div class="todo-input-grid">
+    <input placeholder="Todo name" class="js-name-input name-input">
+    <input type="date" class="js-due-date-input date-input">
+    <button class="addBtn" onclick="
+        addTodo();
+      " class="add-todo-button">Add</button>
+  </div>
+
+  <div class="js-todo-list todo-grid"></div>
+
   <script src="todo-list(beta).js"></script>
 </body>
 
